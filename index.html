@@ -1,0 +1,65 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#274f42">
+  <meta name="description" content="Your daily cup, neatly tracked. Mark tea days, calculate your monthly bill, and keep payment records.">
+  <title>Chai Diary — Your daily tea, neatly tracked</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%98%95%3C/text%3E%3C/svg%3E">
+  <link rel="manifest" href="./manifest.json">
+  <link rel="apple-touch-icon" href="./icon-192.png">
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <svg class="svg-defs" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-cup" viewBox="0 0 24 24"><path d="M4 9h12v6a5 5 0 0 1-5 5H9a5 5 0 0 1-5-5V9Zm12 1h2a3 3 0 0 1 0 6h-2M3 22h16M7 5V2m4 3V1m4 4V2"/></symbol>
+    <symbol id="i-check" viewBox="0 0 24 24"><path d="m5 12 4 4L19 6"/></symbol>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="m9 5 7 7-7 7"/></symbol>
+    <symbol id="i-calendar" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="3"/><path d="M7 3v4m10-4v4M3 11h18m-13 4h1m6 0h1m-8 3h1"/></symbol>
+    <symbol id="i-history" viewBox="0 0 24 24"><path d="M3 11a9 9 0 1 1 2 7M3 4v7h7m2-4v6l4 2"/></symbol>
+    <symbol id="i-settings" viewBox="0 0 24 24"><path d="M4 7h16M4 17h16"/><circle cx="9" cy="7" r="3"/><circle cx="15" cy="17" r="3"/></symbol>
+    <symbol id="i-share" viewBox="0 0 24 24"><path d="M12 16V3m-5 5 5-5 5 5M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6"/></symbol>
+    <symbol id="i-download" viewBox="0 0 24 24"><path d="M12 3v13m-5-5 5 5 5-5M4 17v4h16v-4"/></symbol>
+    <symbol id="i-cloud" viewBox="0 0 24 24"><path d="M7 19h11a4 4 0 0 0 1-7.9A7 7 0 0 0 5.4 9.2 5 5 0 0 0 7 19Z"/></symbol>
+    <symbol id="i-close" viewBox="0 0 24 24"><path d="m6 6 12 12M6 18 18 6"/></symbol>
+  </defs></svg>
+  <header class="site-header"><a href="#" class="brand" aria-label="Chai Diary home"><span class="brand-icon"><svg><use href="#i-cup"/></svg></span><span>chai<span class="brand-light">diary</span><small>ONE CUP AT A TIME</small></span></a><button id="account" class="account-button" aria-label="Open account and settings"><span id="avatar">R</span><span class="desktop-only">My diary</span><svg><use href="#i-settings"/></svg></button></header>
+  <main>
+    <div class="intro"><div><p class="eyebrow">A LITTLE DAILY RITUAL</p><h1>Your daily tea,<br class="mobile-only"> <em>neatly tracked.</em></h1><p class="subtitle">A tap for every cup. A clear bill every month.</p></div><div class="intro-stamp" aria-hidden="true"><svg><use href="#i-cup"/></svg><span>KEEP IT SIMPLE.<br>KEEP IT CHAI.</span></div></div>
+    <div id="storage-strip" class="storage-strip"><span class="status-dot"></span><span id="sync-label" role="status">Saved on this device</span><button id="connect-shortcut">Connect cloud <span aria-hidden="true">↗</span></button></div>
+    <div id="error-banner" class="error-banner" role="alert" hidden></div>
+    <section id="calendar-panel" aria-label="Monthly tea diary">
+      <div class="month-toolbar"><div class="month-title"><p class="eyebrow">YOUR TEA DIARY</p><h2 id="month-heading"></h2></div><div class="month-controls"><button id="prev-month" class="icon-button" aria-label="Previous month"><svg class="flip"><use href="#i-arrow"/></svg></button><button id="jump-today" class="text-button">Today</button><button id="next-month" class="icon-button" aria-label="Next month"><svg><use href="#i-arrow"/></svg></button></div></div>
+      <div class="diary-grid">
+        <aside class="summary-card" aria-label="Monthly bill">
+          <div class="card-topline"><span>THIS MONTH’S BILL</span><span id="paid-badge" class="badge"></span></div>
+          <div id="total-amount" class="amount">₹0</div><p id="calculation" class="calculation">0 cups × ₹12 per cup</p>
+          <div class="summary-stats"><div><span class="stat-label">Cups of tea</span><strong id="tea-count">0</strong></div><div><span class="stat-label">Price per cup</span><strong id="tea-rate">₹12</strong><button id="edit-rate" class="inline-link">Edit</button></div></div>
+          <button id="today-tea" class="primary-button today-button"><svg><use href="#i-cup"/></svg><span>Mark today’s tea</span><span class="plus">+</span></button>
+          <p id="today-note" class="microcopy"></p>
+          <div class="bill-actions"><button id="pay-month" class="secondary-button"><svg><use href="#i-check"/></svg><span>Mark as paid</span></button><button id="share-bill" class="icon-button" aria-label="Share this month’s bill" title="Share bill"><svg><use href="#i-share"/></svg></button></div>
+          <p id="payment-note" class="microcopy"></p>
+        </aside>
+        <div class="calendar-card"><div class="calendar-card-heading"><h3>A cup? Tap the date.</h3><span id="month-mini" class="tiny-tag"></span></div><div class="weekdays" aria-hidden="true"><span>MON</span><span>TUE</span><span>WED</span><span>THU</span><span>FRI</span><span>SAT</span><span>SUN</span></div><div id="calendar" class="calendar" aria-label="Select tea days"></div><div class="calendar-legend"><span><i class="legend-taken"></i>Tea taken</span><span><i class="legend-today"></i>Today</span><span id="no-tea-count" class="no-tea"></span></div><p class="calendar-footnote">One tea per day. Future dates are off the menu.</p></div>
+      </div>
+      <div class="bottom-note"><span><svg><use href="#i-calendar"/></svg><span>Small habit. No end-of-month guesswork.</span></span><button id="export-month" class="inline-link"><svg><use href="#i-download"/></svg>Export month</button></div>
+    </section>
+    <section id="history-panel" hidden aria-label="Yearly overview"><div class="month-toolbar"><div class="month-title"><p class="eyebrow">THE BIGGER PICTURE</p><h2>Your year in chai</h2></div><div class="month-controls"><button id="prev-year" class="icon-button" aria-label="Previous year"><svg class="flip"><use href="#i-arrow"/></svg></button><strong id="history-year"></strong><button id="next-year" class="icon-button" aria-label="Next year"><svg><use href="#i-arrow"/></svg></button></div></div><div class="year-stats"><div><span>Total cups</span><strong id="year-cups">0</strong></div><div><span>Total bill</span><strong id="year-total">₹0</strong></div><div><span>Unpaid amount</span><strong id="year-unpaid">₹0</strong></div></div><div class="history-card"><div class="history-row table-head"><span>MONTH</span><span>CUPS</span><span>AMOUNT</span><span>STATUS</span></div><div id="history-list"></div></div><p class="microcopy history-note">Tap a month to open its diary. “No entries” means nothing has been recorded.</p></section>
+    <footer>Made for your everyday chai <span>☕</span><span class="footer-divider">·</span> Dates follow India time</footer>
+  </main>
+  <nav class="bottom-nav" aria-label="Main navigation"><button id="nav-calendar" class="active" aria-current="page"><svg><use href="#i-calendar"/></svg><span>Diary</span></button><button id="nav-history"><svg><use href="#i-history"/></svg><span>History</span></button><button id="nav-settings"><svg><use href="#i-settings"/></svg><span>Settings</span></button></nav>
+  <dialog id="settings-dialog" class="sheet"><div class="sheet-heading"><div><p class="eyebrow">MAKE YOURSELF AT HOME</p><h2>Your diary settings</h2></div><button class="icon-button close-dialog" aria-label="Close settings"><svg><use href="#i-close"/></svg></button></div>
+    <div class="settings-section"><div class="section-heading"><span class="settings-icon"><svg><use href="#i-cloud"/></svg></span><div><h3>Take your diary anywhere</h3><p id="cloud-description">Connect Firebase and sign in with Google to sync between your phone and computer.</p></div></div><p id="user-info" class="user-info" hidden></p><button id="google-login" class="primary-button" hidden>Sign in with Google</button><button id="google-logout" class="secondary-button" hidden>Sign out</button><button id="upload-device" class="secondary-button" hidden>Copy device-only months to cloud</button><p id="migration-note" class="microcopy" hidden>Copies only months not already in your cloud diary. Existing cloud months stay unchanged.</p>
+      <details id="cloud-setup"><summary>Set up cloud sync <span>+</span></summary><ol class="setup-steps"><li>Create a Firebase web app. Enable <b>Google sign-in</b> and create a <b>Cloud Firestore</b> database.</li><li>Publish the rules in <a href="./firestore.rules" target="_blank" rel="noopener">firestore.rules</a> in Firestore → Rules.</li><li>Add this hostname to Authentication → Settings → Authorized domains: <code id="current-host"></code></li><li>Paste your web app’s <b>firebaseConfig</b> object below. Use this same project on every device.</li></ol><label for="config-input">Firebase web configuration</label><textarea id="config-input" rows="6" spellcheck="false" placeholder='const firebaseConfig = {&#10;  apiKey: "...",&#10;  authDomain: "your-project.firebaseapp.com",&#10;  projectId: "your-project",&#10;  appId: "..."&#10;};'></textarea><p class="microcopy">Use the web config, never a service-account private key. This setting is stored on this browser.</p><button id="save-config" class="primary-button">Save config & reload</button><a class="guide-link" href="./README.md" target="_blank" rel="noopener">Read the complete setup guide ↗</a></details>
+    </div>
+    <div class="settings-section"><h3>Appearance</h3><div class="theme-picker" role="group" aria-label="Choose colour theme"><button data-theme-choice="system">System</button><button data-theme-choice="light">Light</button><button data-theme-choice="dark">Dark</button></div></div>
+    <div class="settings-section"><h3>Keep a copy</h3><p>Download a backup of your recorded months. Device records stay on this browser until you copy them to cloud.</p><button id="backup" class="secondary-button"><svg><use href="#i-download"/></svg>Download JSON backup</button><button id="install-app" class="secondary-button" hidden>Add to home screen</button><p class="microcopy">On Android: browser menu → Install app / Add to Home screen. On iPhone: Safari → Share → Add to Home Screen.</p></div>
+    <div class="settings-section about"><span class="brand-word">chai diary</span><p>One cup a day. ₹12 by default.<br>Your records, your little ritual.</p><p class="microcopy">Offline cloud changes sync when you reconnect. Use a trusted personal device; cached records remain in browser storage.</p></div>
+  </dialog>
+  <dialog id="action-dialog" class="sheet compact-sheet"><form id="action-form"><div class="sheet-heading"><h2 id="action-title"></h2><button type="button" class="icon-button close-dialog" aria-label="Cancel"><svg><use href="#i-close"/></svg></button></div><p id="action-body"></p><div id="rate-field" hidden><label for="rate-input">Price for one tea (₹)</label><input id="rate-input" type="number" inputmode="decimal" min="0.01" max="1000" step="0.01" required><p class="microcopy">This changes the rate for the displayed month only.</p></div><div class="dialog-actions"><button type="button" class="secondary-button close-dialog">Cancel</button><button id="action-confirm" type="submit" class="primary-button">Confirm</button></div></form></dialog>
+  <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+  <noscript><p class="error-banner">Please enable JavaScript to use Chai Diary.</p></noscript>
+  <script type="module" src="./app.js"></script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+{
+  "id": "./",
+  "name": "Chai Diary — Tea Tracker",
+  "short_name": "Chai Diary",
+  "description": "One tap for every cup. Your tea calendar and monthly bill.",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#f8f7f2",
+  "theme_color": "#274f42",
+  "icons": [
+    {"src":"./icon-192.png","sizes":"192x192","type":"image/png","purpose":"any maskable"},
+    {"src":"./icon-512.png","sizes":"512x512","type":"image/png","purpose":"any maskable"}
+  ]
+}
